@@ -21,6 +21,8 @@ public class HomePage extends PageObject {
     }
 
     public SearchResultPage search(String keyword) {
+        searchInput.click();
+        searchInput.clear();
         searchInput.sendKeys(keyword);
         btnSearch.click();
         return new SearchResultPage();
