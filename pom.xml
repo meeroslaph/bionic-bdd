@@ -15,6 +15,8 @@
         <serenity.jbehave.version>1.0.23</serenity.jbehave.version>
         <webdriver.driver>firefox</webdriver.driver>
         <webdriver.version>2.46.0</webdriver.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
 
     <repositories>
