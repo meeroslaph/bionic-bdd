@@ -10,7 +10,19 @@ public class HomePage extends PageObject {
     @FindBy(id = "catalog")
     private WebElementFacade productCatalog;
 
+    @FindBy(id = "field-input-search")
+    private WebElementFacade searchInput;
+
+    @FindBy(id = "btn-search-top")
+    private WebElementFacade btnSearch;
+
     public boolean catalogIsDisplayed() {
         return productCatalog.isCurrentlyVisible();
+    }
+
+    public SearchResultPage search(String keyword) {
+        searchInput.sendKeys(keyword);
+        btnSearch.click();
+        return new SearchResultPage();
     }
 }
