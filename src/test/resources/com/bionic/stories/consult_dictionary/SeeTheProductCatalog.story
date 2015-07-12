@@ -1,4 +1,7 @@
+See the Product Catalog
+
 Meta:
+@tag productcatalog
 
 Narrative:
 As a guest user
