@@ -11,7 +11,7 @@ public class SearchResultPage extends PageObject {
     @FindBy(css = ".search-result > *")
     private List<WebElementFacade> resultProducts;
 
-    private By productImage = By.className("asd");
+    private By productImage = By.className("image");
 
     public String getProductName(int position) {
         return resultProducts.get(position).getText();
