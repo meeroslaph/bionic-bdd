@@ -21,7 +21,7 @@ public class SearchSteps {
     }
 
     @Then("the product on '$position' position should be '$product' from '$category'")
-    public void theFirstAvailableProductShouldBe(int position, String product, String category) {
+    public void thenTheFirstAvailableProductShouldBe(int position, String product, String category) {
         userSteps.found_product_should_be(position - 1, product, category);
     }
 }
