@@ -7,10 +7,12 @@ import org.jbehave.core.annotations.Given;
 import org.jbehave.core.annotations.Then;
 import org.jbehave.core.annotations.When;
 
+import static com.jayway.restassured.RestAssured.get;
 import static com.jayway.restassured.RestAssured.given;
+import static org.hamcrest.CoreMatchers.equalTo;
 
 public class JmeterBookSiteSteps {
-    private final String jmeterBookUrl = "http://jmeterbook.aws.af.cm/person/saveRest";
+    private final String jmeterBookUrl = "http://jmeterbook.aws.af.cm";
     private Response response;
 
     private String userFirstName;
@@ -30,12 +32,14 @@ public class JmeterBookSiteSteps {
                 contentType(ContentType.JSON).
                 body("{\"firstName\":" + userFirstName + ", \"lastName\":" + userLastName + ", \"jobs\":[{\"id\":" + userJobId + "}]}").
                 when().
-                post(jmeterBookUrl);
-        response.prettyPrint();
+                post(jmeterBookUrl + "/person/saveRest");
     }
 
     @Then("the added user is listed in the persons list")
     public void thenTheAddedUserIsListedInThePersonsList() {
         JsonPath jp = new JsonPath(response.asString());
+        int personId = jp.getInt("id");
+        get(jmeterBookUrl + "/person/get/" + personId).
+                then().assertThat().content(equalTo(response.asString()));
     }
 }
