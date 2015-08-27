@@ -13,3 +13,4 @@ Then the added user is listed in the persons list
 Examples:
 |firstname|lastname|jobid|
 |Someone|Cool|3|
+|In|Cognito|5|
